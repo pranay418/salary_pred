@@ -1,18 +1,25 @@
+%%writefile app.py
 
 import streamlit as st
 import pandas as pd
 import joblib
 from sklearn.preprocessing import LabelEncoder
 import numpy as np
+import os
+
+# Define the directory where the model and encoders are saved
+# This assumes they are in the same directory as app.py
+model_dir = os.path.dirname(__file__)
 
 # Load the trained Random Forest model
-model = joblib.load('best_model (1).pkl')
+model_path = os.path.join(model_dir, 'random_forest_regressor_model.pkl')
+model = joblib.load(model_path)
 
 # Load the LabelEncoders for categorical features
 encoders = {
-    'Gender': joblib.load('label_encoder_gender.pkl'),
-    'Education Level': joblib.load('label_encoder_education_level.pkl'),
-    'Job Title': joblib.load('label_encoder_job_title.pkl')
+    'Gender': joblib.load(os.path.join(model_dir, 'label_encoder_gender.pkl')),
+    'Education Level': joblib.load(os.path.join(model_dir, 'label_encoder_education_level.pkl')),
+    'Job Title': joblib.load(os.path.join(model_dir, 'label_encoder_job_title.pkl'))
 }
 
 # --- Streamlit App Interface ---
