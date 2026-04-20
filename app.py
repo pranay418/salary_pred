@@ -12,8 +12,8 @@ import os
 model_dir = os.path.dirname(__file__)
 
 # Load the trained Random Forest model
-model_path = os.path.join(model_dir, 'random_forest_regressor_model.pkl')
-model = joblib.load(model_path)
+model_path = os.path.join(model_dir, 'best_model (1).pkl')
+model = joblib.load(best_model (1).pkl)
 
 # Load the LabelEncoders for categorical features
 encoders = {
