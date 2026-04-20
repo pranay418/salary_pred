@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 import numpy as np
 
 # Load the trained Random Forest model
-model = joblib.load('best_model (1).pkl')
+model = joblib.load('random_forest_regressor_model.pkl')
 
 # Load the LabelEncoders for categorical features
 encoders = {
